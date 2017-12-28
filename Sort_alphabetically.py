@@ -1,6 +1,10 @@
 import re
+import sys
 
-op=raw_input("Enter the filename\n")
+if sys.version_info<(3,0):
+    op=raw_input("Enter the filename\n")
+else:
+    op=input("Enter the filename\n")
 fileopen=open(op,"r")
 newfile=open('sorted.txt',"w")
 lines= fileopen.readlines()
@@ -22,8 +26,8 @@ my_file=open("sorted.txt","w")
 c=0
 for line in lines:
     c=c+1
-    print('%d. %s')%(c,line)
-    final='%d. %s'%(c,line) 
+    print(('%d. %s')%(c,line))
+    final=(('%d. %s')%(c,line)) 
     my_file.write(final)
 my_file.close()
    
